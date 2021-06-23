@@ -1,0 +1,1 @@
+nw.Window.open("./dist/index.html", { "min_width": 350 }, function (win) { })

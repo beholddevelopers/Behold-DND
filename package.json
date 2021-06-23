@@ -1,0 +1,32 @@
+{
+  "name": "behold-dnd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "targets": {
+    "main": false
+  },
+  "scripts": {
+    "start": "concurrently \"npm run parcel:watch\" \"npm run nw:start\"",
+    "parcel:watch": "npx parcel watch --dist-dir dist/ --no-source-maps --public-url \".\" src/index.html",
+    "nw:start": "nw ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.14.6",
+    "@babel/preset-react": "^7.14.5",
+    "@parcel/transformer-sass": "^2.0.0-beta.3.1",
+    "@typescript-eslint/eslint-plugin": "^4.28.0",
+    "@typescript-eslint/parser": "^4.28.0",
+    "concurrently": "^6.2.0",
+    "eslint": "^7.29.0",
+    "eslint-plugin-react": "^7.24.0",
+    "parcel": "^2.0.0-beta.3.1"
+  }
+}
