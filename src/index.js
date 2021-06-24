@@ -4,4 +4,4 @@ import App from "./App";
 
 document.addEventListener("keydown", (e) => { if(e.key == "F5") location.reload(); });
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(<App name="test" />, document.getElementById("root"));
