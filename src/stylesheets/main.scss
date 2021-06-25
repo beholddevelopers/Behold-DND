@@ -2,6 +2,27 @@ $blue: #00F;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
+@mixin mask($src){
+	mask-image: url($src);
+	-webkit-mask-image: url($src);
+}
+
+@mixin slide($time : 20s){
+    animation: slide $time linear infinite;
+}
+
+@keyframes slide {
+	0%    { background-position-x: 0; }
+	100%  { background-position-x: -100%; }
+}
+
 h1 {
     color:$blue;
+}
+
+
+@media (prefers-color-scheme: dark){
+    body{
+        background-color: #333;
+    }
 }
