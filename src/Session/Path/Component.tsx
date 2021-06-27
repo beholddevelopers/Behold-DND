@@ -86,7 +86,7 @@ class PathItem extends Component<itemProps>{
 	calculateC1(start,end):{x:number,y:number}{
 		const mid = this.calculateMidPoint(start,end);
 		return {
-			x: end.x + mid.x / 2 * (start.x > end.x ? 1: 1),
+			x: mid.x,
 			y:start.y
 		}
 	}
@@ -94,7 +94,7 @@ class PathItem extends Component<itemProps>{
 	calculateC2(start,end):{x:number,y:number}{
 		const mid = this.calculateMidPoint(start,end);
 		return {
-			x: start.x - mid.x / 2 * (start.x > end.x ? 1: 1),
+			x: mid.x,
 			y:end.y,
 		}
 	}
