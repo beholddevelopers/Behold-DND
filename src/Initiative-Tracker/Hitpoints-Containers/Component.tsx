@@ -1,5 +1,5 @@
 import React, {Component, ReactNode} from 'react';
-import {resolveImagePath} from '../Utilities';
+import {resolveImagePath} from '../../Utilities';
 import './Stylesheet/style.scss';
 interface props {
 	value:number,

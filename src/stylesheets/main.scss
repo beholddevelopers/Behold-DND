@@ -1,4 +1,4 @@
-$blue: #00F;
+$blue: #0f0f;
 
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
@@ -21,8 +21,8 @@ h1 {
 }
 
 
-@media (prefers-color-scheme: dark){
-    body{
-        background-color: #333;
-    }
-}
+//@media (prefers-color-scheme: dark){
+//    body{
+//        background-color: #fff;
+//    }
+//}
