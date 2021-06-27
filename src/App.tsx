@@ -44,6 +44,6 @@ export default class App extends Component<props> {
 	handleClick(event):void{
 		gsap.to(event.target,2,{
 			marginTop: event.target.style.marginTop === "100px" ? "0px" : "100px"
-		})
+		});
 	}
 }

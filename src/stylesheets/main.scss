@@ -1,6 +1,9 @@
-$blue: #0f0f;
 
+@forward "../../node_modules/bootstrap/scss/bootstrap";
 @import "../../node_modules/bootstrap/scss/bootstrap";
+
+//Variables
+$blue: #0f0f;
 
 @mixin mask($src){
 	mask-image: url($src);
@@ -21,8 +24,8 @@ h1 {
 }
 
 
-//@media (prefers-color-scheme: dark){
-//    body{
-//        background-color: #fff;
-//    }
-//}
+@media (prefers-color-scheme: dark){
+    body{
+        background-color: #333!important;
+    }
+}
