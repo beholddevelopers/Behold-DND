@@ -4,6 +4,7 @@ import { rollDice } from './Utilities';
 import HPContainer from './initiative-tracker/Hitpoints-Containers/Component'
 import CardBody from './Session/Card-Body/Component'
 import Paths from './Session/Path/Component'
+import WYSIWYG from './Session/Doc-Editor/Component'
 interface props {
 	name: any
 }
@@ -19,8 +20,13 @@ export default class App extends Component<props> {
 		}
 	}
 
+	render():ReactNode{
+		return <div>
+			<WYSIWYG/>
+		</div>
+	}
 
-	render():ReactNode {
+	renderDIS():ReactNode {
 		return <div>
 				<Paths 
 					data={[

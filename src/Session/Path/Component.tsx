@@ -37,17 +37,19 @@ interface itemProps {
 	width?:number
 }
 class PathItem extends Component<itemProps>{
-	myRef:any
+	element:any
 
 	constructor(props){
 		super(props);
-		this.myRef = React.createRef();
+		this.element = React.createRef();
+
 	}
 
-	componentDidMount(){
+	componentDidMount():void{
 		setInterval(()=>{
-			console.log("interval",this.myRef.current)
-			gsap.to(this.myRef.current,5,{
+			if(!this.element)return;
+			console.log("interval",this.element.current)
+			gsap.to(this.element.current,5,{
 				attr:{d:this.getPathCoordinates(
 					{x:Math.floor(Math.random() * innerWidth) - 16,y:Math.floor(Math.random() * innerHeight) - 16},
 					{x:Math.floor(Math.random() * innerWidth) - 16,y:Math.floor(Math.random() * innerHeight) - 16}
@@ -60,7 +62,7 @@ class PathItem extends Component<itemProps>{
 		let width = Math.max(this.props.start.x,this.props.end.x) + 16;
 		let height = Math.max(this.props.start.y,this.props.end.y) + 16;
 		return <path d={this.getPathCoordinates(this.props.start,this.props.end)} 
-			ref={this.myRef}
+			ref={this.element}
 			stroke={this.props.color||"black"} 
 			fill="transparent"
 			strokeWidth={this.props.width || "1px"}
