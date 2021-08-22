@@ -1,9 +1,9 @@
 import React, {Component, ReactNode} from 'react';
-import {resolveImagePath} from '../../Utilities';
+//import {resolveImagePath} from '../../Utilities';
 import { EditorState, RichUtils,Modifier,AtomicBlockUtils } from 'draft-js';
 import Editor from '@draft-js-plugins/editor';
 import createImagePlugin from '@draft-js-plugins/image';
-import './Stylesheet/style.scss';
+import style from './Stylesheet/style.module.scss';
 const imagePlugin = createImagePlugin();
 interface props{
 
@@ -17,6 +17,7 @@ export default class WYSIWYG extends Component<props,state>{
 	constructor(props) {
 		super(props);
 		this.state = {editorState: EditorState.createEmpty()};
+		console.log(style);
 	}
 	render():ReactNode{
 		return <div>
@@ -35,13 +36,13 @@ export default class WYSIWYG extends Component<props,state>{
 
 	renderControls():ReactNode{
 		return <div className="px-2">
-			<button className="button" onClick={this._onBoldClick.bind(this)}>Bold</button>
-			<button className="button" onClick={this._onItalicsClick.bind(this)}>Italics</button>
-			<button className="button" onClick={this._onUnderlineClick.bind(this)}>UnderLine</button>
-			<button className="button" onClick={this._onBoldClick.bind(this)}>Link</button>
-			<button className="button" onClick={this._onImageClick.bind(this)}>Image</button>
-			<button className="button" onClick={this._onBoldClick.bind(this)}>Bold</button>
-			<button className="button" onClick={this._onBoldClick.bind(this)}>Bold</button>
+			<button className={style.button} onClick={this._onBoldClick.bind(this)}>Bold</button>
+			<button className={style.button} onClick={this._onItalicsClick.bind(this)}>Italics</button>
+			<button className={style.button} onClick={this._onUnderlineClick.bind(this)}>UnderLine</button>
+			<button className={style.button} onClick={this._onBoldClick.bind(this)}>Link</button>
+			<button className={style.button} onClick={this._onImageClick.bind(this)}>Image</button>
+			<button className={style.button} onClick={this._onBoldClick.bind(this)}>Bold</button>
+			<button className={style.button} onClick={this._onBoldClick.bind(this)}>Bold</button>
 		</div>
 		
 	}

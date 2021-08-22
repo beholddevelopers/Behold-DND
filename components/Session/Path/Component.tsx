@@ -1,14 +1,14 @@
 import React, {Component, ReactNode} from 'react';
 import gsap from 'gsap';
-import {resolveImagePath} from '../../Utilities';
-//import './Stylesheet/style.scss';
+//import {resolveImagePath} from '../../Utilities';
+import styles from './Stylesheet/style.module.scss';
 
 interface props{
 	data:Array<itemProps>
 }
 export default class Paths extends Component<props>{
 	render():ReactNode{
-		return <svg width={"100vw"/*`${width}px`*/} height={"100vh"/*`${height}px`*/}>
+		return <svg className={styles.paths}>
 			{this.renderPaths()}
 		</svg>
 	}
