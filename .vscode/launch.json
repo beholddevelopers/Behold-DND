@@ -5,13 +5,28 @@
 	"version": "0.2.0",
 	"configurations": [
 		{
-			"type": "pwa-node",
+			"type": "node",
 			"request": "launch",
-			"name": "Launch Program",
+			"name": "Launch via Docker",
+			"runtimeExecutable": "docker",
+			"runtimeArgs": [
+				"compose",
+				"up"
+			],
+		},
+		{
+			"type": "node",
+			"request": "launch",
+			"name": "Launch via NPM",
+			"runtimeExecutable": "npm",
+			"runtimeArgs": [
+				"run",
+				"dev"
+			],
+			"port": 9229,
 			"skipFiles": [
 				"<node_internals>/**"
-			],
-			"program": "${workspaceFolder}\\index.js"
-		}
+			]
+		},
 	]
 }

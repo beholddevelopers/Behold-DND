@@ -10,15 +10,8 @@ export default function Home() {
   //console.log(styles)
   return <div>
     <Paths data={[{start:{x:0,y:0},end:{x:100,y:100}}]}></Paths>
+    <Paths data={[{start:{x:100,y:100},end:{x:200,y:200}}]}></Paths>
     <Editor/>
-    <HPContainer/>
-    <HPContainer/>
-    <HPContainer/>
-    <HPContainer/>
-    <HPContainer/>
-    <HPContainer/>
-    <HPContainer/>
-    <HPContainer/>
     <HPContainer/>
     <HPContainer/>
   </div>

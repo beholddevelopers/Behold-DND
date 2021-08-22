@@ -14,8 +14,9 @@ export default class Paths extends Component<props>{
 	}
 
 	renderPaths():Array<ReactNode>{
-		return this.props.data.map((data)=>{
+		return this.props.data.map((data,index)=>{
 			return <PathItem 
+				key={index}
 				start={data.start} 
 				end={data.end} 
 				color={this.randomColor()}
@@ -48,7 +49,6 @@ class PathItem extends Component<itemProps>{
 	componentDidMount():void{
 		setInterval(()=>{
 			if(!this.element)return;
-			console.log("interval",this.element.current)
 			gsap.to(this.element.current,5,{
 				attr:{d:this.getPathCoordinates(
 					{x:Math.floor(Math.random() * innerWidth) - 16,y:Math.floor(Math.random() * innerHeight) - 16},
