@@ -1,20 +1,38 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import React from 'react';
-//import styles from '../styles/Home.module.css';
-import Paths from '../components/Session/Path/Component.tsx';
-import Editor from '../components/Session/Doc-Editor/Component.tsx'
-import HPContainer from '../components/Initiative-Tracker/Hitpoints-Containers/Component.tsx';
+import React, { Component, ReactNode } from 'react';
+import Paths from '../components/Session/Path/Component';
+import Editor from '../components/Session/Doc-Editor/Component'
+import HPContainer from '../components/Initiative-Tracker/Hitpoints-Containers/Component';
+interface props {
 
-export default function Home() {
+}
+
+interface state {
+  testValue1 : string,
+  testValue2 : string
+}
+export default class Home extends Component<props,state>{
+
+  constructor(props){
+    super(props);
+    this.state = {
+      testValue1 : "",
+      testValue2 : ""
+    }
+  }
   //console.log(styles)
-  return <div>
+  render():ReactNode{
+    return <div>
     <Paths data={[{start:{x:0,y:0},end:{x:100,y:100}}]}></Paths>
     <Paths data={[{start:{x:100,y:100},end:{x:200,y:200}}]}></Paths>
     <Editor/>
-    <HPContainer/>
-    <HPContainer/>
+    <HPContainer value={this.state.testValue1} stateName="testValue1" onChange={this.handleChange.bind(this)}/>
+    <HPContainer value={this.state.testValue2} stateName="testValue2" onChange={this.handleChange.bind(this)} />
   </div>
-  //return 
+  }
 
+  handleChange(event, containerName){
+    let tempState = new Object();
+    tempState[containerName] = event.target.value;
+    this.setState(tempState);
+  }
 }

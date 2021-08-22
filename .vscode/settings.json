@@ -13,5 +13,9 @@
 			"password": "password",
 			"database": "crud"
 		}
+	],
+	"cSpell.words": [
+		"Hitpoints",
+		"gsap"
 	]
 }
