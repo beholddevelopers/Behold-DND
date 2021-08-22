@@ -2,6 +2,7 @@ import React, { Component, ReactNode } from 'react';
 import Paths from '../components/Session/Path/Component';
 import Editor from '../components/Session/Doc-Editor/Component'
 import HPContainer from '../components/Initiative-Tracker/Hitpoints-Containers/Component';
+import DiceRoller from '../components/Dice-Roller/Dice-Roller-Lg/Component';
 interface props {
 
 }
@@ -21,6 +22,10 @@ export default class Home extends Component<props,state>{
   }
   //console.log(styles)
   render():ReactNode{
+    
+    return <div>
+      <DiceRoller/>
+    </div>
     return <div>
     <Paths data={[{start:{x:0,y:0},end:{x:100,y:100}}]}></Paths>
     <Paths data={[{start:{x:100,y:100},end:{x:200,y:200}}]}></Paths>
@@ -31,7 +36,7 @@ export default class Home extends Component<props,state>{
   }
 
   handleChange(event, containerName){
-    let tempState = new Object();
+    let tempState = {};
     tempState[containerName] = event.target.value;
     this.setState(tempState);
   }
