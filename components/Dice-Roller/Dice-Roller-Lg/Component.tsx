@@ -1,26 +1,20 @@
-import React, {Component, ReactNode} from 'react';
 import styles from './Stylesheet/style.module.scss';
+import {Component, ReactNode, RefObject, createRef} from 'react';
 import { 
 	Scene, 
 	PerspectiveCamera, 
 	WebGLRenderer,
 	BoxGeometry,
-	MeshBasicMaterial,
 	Mesh,
 	sRGBEncoding,
-	Color,
 	IcosahedronGeometry,
 	TetrahedronGeometry,
 	DodecahedronGeometry,
-	MeshToonMaterial,
 	MeshStandardMaterial,
-	MeshPhongMaterial,
 	PointLight,
 	AmbientLight
-	//CSS3DObject
 } from 'three';
 import { GLTFLoader } from '../../../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { CSS3DRenderer, CSS3DObject} from '../../../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import gsap from 'gsap'
 //import * as THREE from 'three';
 interface props {
@@ -33,7 +27,7 @@ interface state {
 
 export default class DiceRoller extends Component<props,state>{	
 	
-	element:any
+	element:RefObject<HTMLCanvasElement>
 	scene:Scene
 	cube:Mesh
 	camera:PerspectiveCamera
@@ -48,7 +42,7 @@ export default class DiceRoller extends Component<props,state>{
 		this.state = {
 
 		};
-		this.element = React.createRef();
+		this.element = createRef();
 		
 	}
 
@@ -131,7 +125,7 @@ export default class DiceRoller extends Component<props,state>{
 	}
 
 	createLights(){
-		this.light = new PointLight(Math.random() * 0xffffff);
+		this.light = new PointLight(0x999999);
 		this.light.position.z = 2;
 		this.light.position.x = 1;
 		this.light.position.y = 1;
@@ -170,7 +164,7 @@ export default class DiceRoller extends Component<props,state>{
 		}
 	}
 
-	positionCamera(x,y,z){
+	positionCamera(x:number,y:number,z:number){
 		x && (this.camera.position.x = x);
 		y && (this.camera.position.y = y);
 		z && (this.camera.position.z = z);
