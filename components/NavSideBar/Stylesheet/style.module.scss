@@ -1,0 +1,59 @@
+@import "../../../styles/main.scss";
+//--------------------------------------
+// Variables
+//--------------------------------------
+$mask : "../Images/button_mask.svg";
+$size : 128px;
+
+//--------------------------------------
+// Classes
+//--------------------------------------
+.btnContainer{
+	@include square($size);
+	//@include slide(50s);
+	//@include mask($mask);
+	position: absolute;
+	text-align: center;
+	z-index: 1;
+
+	left:15px;
+	
+	background-color: #ccc;
+	mask-image: url($mask);
+	-webkit-mask-image: url($mask);
+}
+
+.navSideBar{
+	width:20%;
+	min-width: 128px;
+	max-width:165px;
+	min-height:100vh;
+
+	background-color: #272822;
+}
+
+.btnText{
+	top:128px;
+	width:20%;
+	min-width: 128px;
+	max-width:165px;
+	font-weight:bold;
+	color:#ccc;
+	position: absolute;
+	text-align: center;
+}
+
+.btnWrapper{
+	height:165px;
+	width:20%;
+	min-width: 128px;
+	max-width:165px;
+	position: relative;
+	cursor:pointer;
+}
+
+
+
+//--------------------------------------
+// Mixins
+//--------------------------------------

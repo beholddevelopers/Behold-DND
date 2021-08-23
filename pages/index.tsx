@@ -7,6 +7,10 @@ import DiceRoller from '../components/Dice-Roller/Dice-Roller-Lg/Component';
 import { changeName } from '../redux/reducers/UserReducer';
 import { ActionCreatorWithPayload } from '@reduxjs/toolkit';
 import { RootState } from '../redux/Store';
+
+// Import components
+import NavSideBar from '../components/NavSideBar';
+
 interface props {
 	name: string,
 	changeName: ActionCreatorWithPayload<any, string>
@@ -23,14 +27,15 @@ class Home extends React.Component<props>{
 	//console.log(styles)
 	render():ReactNode{
 		return <div>
-			<h1>{this.props.name} <button onClick={this.changeName.bind(this)}>test</button></h1>
+			<NavSideBar />
+			{/* <h1>{this.props.name} <button onClick={this.changeName.bind(this)}>test</button></h1>
 
 			<DiceRoller/>
 			<Paths data={[{start:{x:0,y:0},end:{x:100,y:100}}]}></Paths>
 			<Paths data={[{start:{x:100,y:100},end:{x:200,y:200}}]}></Paths>
 			<Editor/>
 			<HPContainer value={""} stateName="testValue1" onChange={this.handleChange.bind(this)}/>
-			<HPContainer value={""} stateName="testValue2" onChange={this.handleChange.bind(this)} />
+			<HPContainer value={""} stateName="testValue2" onChange={this.handleChange.bind(this)} /> */}
 		</div>
 	}
 
