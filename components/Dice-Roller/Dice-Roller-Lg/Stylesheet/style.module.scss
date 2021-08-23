@@ -9,43 +9,10 @@ $size : 256px;
 //--------------------------------------
 // Classes
 //--------------------------------------
-.heartContainer{
-	@include square($size);
-	@include slide(50s);
-	//@include mask($mask);
+.diceRoller{
 	position: absolute;
-	text-align: center;
-	z-index: 1;
-	
-	background-image: url($bg);
-	mask-image: url($mask);
-	-webkit-mask-image: url($mask);
-}
-
-.heartText{
-	@include square($size);
-	@include outline(white,black);
-	position: absolute;
-	z-index: 2;
-
-	font-size: $size / 2;
-	font-weight: bold;
-	
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	text-align: center;
-
-	background-color: transparent;
-	border-color: transparent;
-
-	
-
-}
-
-.heartWrapper{
-	@include square(256px);
-	position: relative;
+	z-index: 10;
+	opacity: 1;
 }
 
 //--------------------------------------

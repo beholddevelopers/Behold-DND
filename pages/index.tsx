@@ -24,7 +24,7 @@ export default class Home extends Component<props,state>{
   render():ReactNode{
 
     return <div>
-    <DiceRoller/>
+    <DiceRoller id="cvsDiceRoller"/>
     <Paths data={[{start:{x:0,y:0},end:{x:100,y:100}}]}></Paths>
     <Paths data={[{start:{x:100,y:100},end:{x:200,y:200}}]}></Paths>
     <Editor/>
