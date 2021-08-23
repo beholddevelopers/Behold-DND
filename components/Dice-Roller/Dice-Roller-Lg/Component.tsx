@@ -15,7 +15,8 @@ import {
 	MeshToonMaterial,
 	MeshStandardMaterial,
 	MeshPhongMaterial,
-	PointLight
+	PointLight,
+	AmbientLight
 	//CSS3DObject
 } from 'three';
 import { GLTFLoader } from '../../../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
@@ -40,6 +41,7 @@ export default class DiceRoller extends Component<props,state>{
 	loader:GLTFLoader
 	dice:any
 	light:PointLight
+	ambientLight:AmbientLight
 
 	constructor(props:props){
 		super(props);
@@ -132,8 +134,9 @@ export default class DiceRoller extends Component<props,state>{
 		this.light = new PointLight(Math.random() * 0xffffff);
 		this.light.position.z = 2;
 		this.light.position.x = 1;
-		this.light.position.y = 1  
-		this.scene.add(this.light)
+		this.light.position.y = 1;
+		this.ambientLight = new AmbientLight(0x111111)
+		this.scene.add(this.light,this.ambientLight)
 	}
 
 	createShape(){
