@@ -1,39 +1,39 @@
 {
   "name": "behold-dnd",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "targets": {
-    "main": false
-  },
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "concurrently \"npm run parcel:watch\" \"npm run nw:start\"",
-    "parcel:watch": "npx parcel watch --dist-dir dist/ --no-source-maps --public-url \".\" src/index.html",
-    "nw:start": "nw ."
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT",
   "dependencies": {
+    "@draft-js-plugins/editor": "^4.1.0",
+    "@draft-js-plugins/image": "^4.1.2",
     "@reduxjs/toolkit": "^1.6.0",
     "@types/node": "^15.12.4",
-    "@types/react": "^16.0.25",
+    "@types/react": "^17.0.19",
     "@types/react-redux": "^7.1.16",
-    "bootstrap": "^5.0.2",
+    "bootstrap": "^5.1.0",
+    "draft-js": "^0.11.7",
     "gsap": "^3.7.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.4"
+    "next": "11.1.0",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-redux": "^7.2.4",
+    "sass": "^1.38.0",
+    "scss": "^0.2.4",
+    "three": "^0.131.3",
+    "typescript": "^4.3.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.6",
-    "@babel/preset-react": "^7.14.5",
-    "@parcel/transformer-sass": "^2.0.0-beta.3.1",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
     "concurrently": "^6.2.0",
-    "eslint": "^7.29.0",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.0",
     "eslint-plugin-react": "^7.24.0",
-    "parcel": "^2.0.0-beta.3.1"
+    "file-loader": "^6.2.0"
   }
 }

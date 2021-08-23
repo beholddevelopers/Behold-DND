@@ -1,0 +1,33 @@
+
+@import "../../../../styles/main.scss";
+@import "../../../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
+
+//@import "../../../../node_modules/@draft-js-plugins/image/lib/plugin.css";
+.wysiwyg{
+	border: 1px solid gray;
+	background-color: white;
+	@extend .m-3;
+	@extend .mt-1;
+	@extend .p-3;
+}
+
+.button{
+	//@extend .btn !optional;
+	//@extend .btn-secondary !optional;
+	//@extend .m-1 !optional;
+	border: none;
+	border-radius: 0px;
+	padding: 12px 18px;
+	font-size: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+	color: white;
+	background-color: gray;
+	box-shadow: 0 0 4px #999;
+	outline: none;
+	@include ripple(rgb(238, 73, 73), white)
+}
+
+
+  
+  /* Button style */

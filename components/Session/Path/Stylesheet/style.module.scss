@@ -1,0 +1,12 @@
+//@import "../../../stylesheets/main.scss";
+//@import "../../../../node_modules/bootstrap/scss/_variables.scss";
+@import "../../../../node_modules/bootstrap/scss/bootstrap-utilities.scss";
+
+.paths{
+	@extend .p-0;
+	@extend .m-0;
+	position: absolute;
+	z-index: -10;
+	width:100vw;
+	height: 99.7vh;
+}

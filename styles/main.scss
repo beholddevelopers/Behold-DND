@@ -1,0 +1,51 @@
+
+//@forward "../../node_modules/bootstrap/scss/bootstrap";
+//@import "../../node_modules/bootstrap/scss/bootstrap";
+
+//Variables
+//$blue: #0f0f;
+
+@mixin mask($src){
+	mask-image: url($src);
+	-webkit-mask-image: url($src);
+}
+
+@mixin slide($time : 20s){
+    animation: slide $time linear infinite;
+}
+
+@mixin square($width) {
+	width: $width;
+	height: $width;
+}
+
+@mixin outline($color1, $color2){
+	color:$color1;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: $color2;
+}
+
+@mixin ripple($color1, $color2){
+		background-position: center;
+		transition: background 0.8s;
+	  &:hover {
+		background: $color1 radial-gradient(circle, transparent 1%, $color1 1%) center/15000%;
+	  }
+	  &:active {
+		background-color: $color2;
+		background-size: 100%;
+		transition: background 0s;
+	  }
+}
+
+
+@keyframes slide {
+	0%    { background-position-x: 0; }
+	100%  { background-position-x: -100%; }
+}
+
+//@media (prefers-color-scheme: dark){
+//    body{
+//        background-color: #333!important;
+//    }
+//}
