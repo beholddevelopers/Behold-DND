@@ -4,7 +4,7 @@ import styles from './Stylesheet/style.module.scss';
 interface props {
 	value:string,
 	stateName:string,
-	onChange:VoidFunction,
+	onChange(event: React.ChangeEvent<HTMLInputElement>, stateName: string):VoidFunction,
 	max?:number,
 	defaultValue?:number
 }
@@ -19,7 +19,7 @@ export default class HPContainer extends Component<props>{
 		</div>
 	}
 
-	handleChange(event):void {
+	handleChange(event: React.ChangeEvent<HTMLInputElement>):void {
 		if(this.illegalCharacters.test(event.target.value)){
 			event.preventDefault();
 			return;
