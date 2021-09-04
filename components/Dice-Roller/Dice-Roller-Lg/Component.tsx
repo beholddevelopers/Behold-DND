@@ -19,6 +19,7 @@ import gsap from 'gsap'
 //import * as THREE from 'three';
 interface props {
 	id:string
+	onUpdate?:Function
 }
 
 interface state {
@@ -52,9 +53,9 @@ export default class DiceRoller extends Component<props,state>{
 		this.createLights();
 		//this.positionCamera(500,500,500)
 		//this.createCSSContent();
-		this.createShape();
-		//this.createD20();
-		this.update();
+		//this.createShape();
+		this.createD20();
+		this.tick();
 		window.addEventListener("resize",this.resize.bind(this))
 	}
 	
@@ -76,23 +77,14 @@ export default class DiceRoller extends Component<props,state>{
 		//this.element.current.appendChild( this.renderer.domElement );
 	}
 
-	update():void {
-		requestAnimationFrame(this.update.bind(this));
-
-		if(this.dice){
-			this.dice.scene.children.forEach(child=>{
-				child.rotation.x += 0.01;
-				child.rotation.y += 0.01;
-			})
-			//this.camera.position.z = 3 + Math.sin(Date.now()/ 1000);
-			//this.camera.position.x = Math.sin(Date.now()/ 10000)*2;
-			//this.camera.position.y = Math.sin(Date.now()/ 1000)*2;
-			//this.cube.rotation.y += 0.01;
-
-			//this.cube.rotation.z = Math.sin(Date.now()/1000)/2;
-
-		}/**/
+	tick():void {
+		requestAnimationFrame(this.tick.bind(this));
+		this.handleUpdate();
 		this.renderer.render( this.scene, this.camera );
+	}
+
+	handleUpdate(){
+		if(this.props.onUpdate) this.props.onUpdate();
 	}
 
 	resize(){
@@ -101,10 +93,31 @@ export default class DiceRoller extends Component<props,state>{
 
 	createD20(){
 		this.loadModel('/Models/D20/scene.gltf').then(gtlf => {
-			this.dice = gtlf;
-			this.scene.add(this.dice.scene)
-			console.log(this.dice,this.scene)
+			this.dice = gtlf.scene.children[0];
+			this.dice.scale.set(0,0,0)
+			gsap.to(this.dice.scale,{
+				duration:10,
+				x:0.01,
+				y:0.01,
+				z:0.01
+			})
+			this.scene.add(this.dice)
 			this.camera.position.z = 5;
+			setInterval(()=>{
+				gsap.to(this.dice.rotation,{
+					duration:1,
+					x:(Math.random()-0.5)*5,
+					y:(Math.random()-0.5)*5,
+					z:(Math.random()-0.5)*5
+				})
+				
+				gsap.to(this.dice.position,{
+					duration:1,
+					x:(Math.random()-0.5)*5,
+					y:(Math.random()-0.5)*5,
+					z:(Math.random()-0.5)*5
+				})
+			},2000)
 		}).catch(console.warn);
 
 	}
@@ -125,11 +138,11 @@ export default class DiceRoller extends Component<props,state>{
 	}
 
 	createLights(){
-		this.light = new PointLight(0x999999);
+		this.light = new PointLight(0xfffffff);
 		this.light.position.z = 2;
 		this.light.position.x = 1;
 		this.light.position.y = 1;
-		this.ambientLight = new AmbientLight(0x111111)
+		this.ambientLight = new AmbientLight(0x333333)
 		this.scene.add(this.light,this.ambientLight)
 	}
 
@@ -141,13 +154,15 @@ export default class DiceRoller extends Component<props,state>{
 		
 		this.camera.position.z = 5;
 		setInterval(()=>{
-			gsap.to(this.cube.position,1,{
+			gsap.to(this.cube.position,{
+				duration:1,
 				x:(Math.random()-0.5)*5,
 				y:(Math.random()-0.5)*5,
 				z:(Math.random()-0.5)*5
 			})
 			
-			gsap.to(this.cube.rotation,1,{
+			gsap.to(this.cube.rotation,{
+				duration:1,
 				x:(Math.random()-0.5)*5,
 				y:(Math.random()-0.5)*5,
 				z:(Math.random()-0.5)*5
