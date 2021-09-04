@@ -11,8 +11,8 @@ import {
 	Color//,
 	//CSS3DObject
 } from 'three';
-import { GLTFLoader } from '../../../node_modules/three/examples/jsm/loaders/GLTFLoader.js';
-import { CSS3DRenderer, CSS3DObject} from '../../../node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
+import { GLTFLoader } from '@node_modules/three/examples/jsm/loaders/GLTFLoader.js';
+import { CSS3DRenderer, CSS3DObject} from '@node_modules/three/examples/jsm/renderers/CSS3DRenderer.js';
 import gsap from 'gsap'
 //import * as THREE from 'three';
 interface props {

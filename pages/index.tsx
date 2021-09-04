@@ -1,8 +1,8 @@
 import React, { Component, ReactNode } from 'react';
-import Paths from '../components/Session/Path/Component';
-import Editor from '../components/Session/Doc-Editor/Component'
-import HPContainer from '../components/Initiative-Tracker/Hitpoints-Containers/Component';
-import DiceRoller from '../components/Dice-Roller/Dice-Roller-Lg/Component';
+import Paths from '@components/Session/Path';
+import Editor from '@components/Session/Doc-Editor'
+import HPContainer from '@components/Initiative-Tracker/Hitpoints-Containers';
+import DiceRoller from '@components/Dice-Roller/Dice-Roller-Lg';
 interface props {
 
 }
